@@ -27,7 +27,7 @@ app.use(cors());
 //   .catch(next)
 // })
 
-
+console.log(usersRouter)
 app.use('/users', usersRouter)
 
 app.get('/', (req, res) => {

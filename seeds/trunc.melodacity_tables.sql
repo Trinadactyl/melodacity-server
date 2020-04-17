@@ -1,0 +1,3 @@
+TRUNCATE
+ melodacity_users,
+ RESTART IDENTITY

@@ -1,7 +1,17 @@
+/*
+  ('Test User', 'test', 'password'),
+  ('J. Hendrix', 'guitar_burner42', 'jimipw'),
+  ('E. Presley', 'pbbacon', 'elvispw'),
+  ('R. Plant', 'damothership', 'robertpw'),
+  ('B. Dylan', 'rainy-day41', 'bobpw'),
+  ('E. James', 'atlastlady', 'ettapw');
+*/
+
 BEGIN;
 
 TRUNCATE
-  melodacity_users
+  melodacity_users,
+  melodacity_melodies
   RESTART IDENTITY CASCADE;
 
 INSERT INTO melodacity_users (full_name, user_name, password)
@@ -13,14 +23,11 @@ VALUES
   ('B. Dylan', 'rainy-day41', '$2a$12$hyrlA/w15RYCe95h0Z6gU.wCGdVo5qZfqIenanGNopH8lzOq4QdGC'),
   ('E. James', 'atlastlady', '$2a$12$.yE7nUkx1cUyvxFjCQ1ImO4W9SsQSzpFAgEbmjlon7s7cQbLyOVqm');
 
-
+  INSERT INTO melodacity_melodies (title, content, user_id)
+    VALUES
+      ('Dummy melody', 'do re mi fa so la ti  da', 1),
+      ('Melody Title', 'This is the music!!', 1),
+      ('I make a lot of musis', 'placeholder for my music', 1),
+      ('Baby', 'baby, baby. baby, ooooooh', 3),
+      ('At last', 'this is a melody', 6);
 COMMIT;
-
-/*
-  ('Test User', 'test', 'password'),
-  ('J. Hendrix', 'guitar_burner42', 'jimipw'),
-  ('E. Presley', 'pbbacon', 'elvispw'),
-  ('R. Plant', 'damothership', 'robertpw'),
-  ('B. Dylan', 'rainy-day41', 'bobpw'),
-  ('E. James', 'atlastlady', 'ettapw');
-*/

@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS melodacity_users;
+DROP TABLE IF EXISTS melodacity_users CASCADE;

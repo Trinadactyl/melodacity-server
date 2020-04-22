@@ -13,21 +13,21 @@ usersRouter
       })
       .catch(next)
   })
-  .post('/', jsonBodyParser, (req, res) => {
-    const { password } = req.body
+  // .post('/', jsonBodyParser, (req, res) => {
+  //   const { password } = req.body
 
-    for (const field of ['full_name', 'user_name', 'password'])
-      if(!req.body[field])
-        return res.status(400).json({
-          error: `Missing '${field}' in request body`
-        })
-      const passwordError = UsersService.validatePassword(password)
+  //   for (const field of ['full_name', 'user_name', 'password'])
+  //     if(!req.body[field])
+  //       return res.status(400).json({
+  //         error: `Missing '${field}' in request body`
+  //       })
+  //     const passwordError = UsersService.validatePassword(password)
 
-      if (passwordError)  
-        return res.status(400).json({ error: passwordError }) 
-        
-      res.send('ok')
-  })
+  //     if (passwordError)  
+  //       return res.status(400).json({ error: passwordError }) 
+
+  //     res.send('ok')
+  // })
 
 
   module.exports = usersRouter

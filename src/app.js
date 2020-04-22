@@ -5,6 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const usersRouter = require('./users/user-router')
 const authRouter = require('./auth/authRouter')
+const melodiesRouter = require('./melodies/melodies-router')
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(cors());
 
 app.use('/users', usersRouter)
 app.use('/auth', authRouter)
+app.use('/melodies', melodiesRouter)
 
 app.get('/', (req, res) => {
   res.send('Hello, world!')

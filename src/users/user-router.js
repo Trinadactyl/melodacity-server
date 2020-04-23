@@ -2,7 +2,7 @@ const express = require('express')
 const UsersService = require('./user-service')
 
 const usersRouter = express.Router()
-const jsonBodyParser = express.json()
+//const jsonBodyParser = express.json()
 
 usersRouter
   .route('/')
@@ -13,6 +13,14 @@ usersRouter
       })
       .catch(next)
   })
+
+usersRouter
+  .route('/:id')
+  .get((req, res) => {
+    res.json(UsersService.getUserWithId(res.id))
+  })
+
+
   // .post('/', jsonBodyParser, (req, res) => {
   //   const { password } = req.body
 

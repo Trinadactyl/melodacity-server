@@ -13,6 +13,10 @@ const MelodiesService = {
         'melody.user_id'
       )
   },
+  getUserMelodies(db, userId) {
+    return MelodiesService.getAllMelodies(db)
+      .where('melody.user_id', userId)
+  },
   insertMelody(db, newMelody) {
     return db
     .insert(newMelody)

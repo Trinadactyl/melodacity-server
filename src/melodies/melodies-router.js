@@ -13,9 +13,8 @@ melodiesRouter
       })
       .catch(next)
   })
+
   .post(jsonBodyParser, (req,res,next) => {
-    ///const { title, key, progression, melody, user_id } = req.body
-    //const newMelody = { title, content, user_id }
 
     MelodiesService.insertMelody(
       req.app.get('db'),
@@ -28,6 +27,15 @@ melodiesRouter
         .json(melody)
     })
     .catch(next)
-  })                                                                
+  })
+  melodiesRouter
+    .route('/:user_id')
+    .get((req, res) => {
+      res.json(MelodiesService.getUserMelodies(res.user_id))
+      // MelodiesService.getUserMelodies(
+      //   req.app.get('db'),
+      //   req.params.user_id
+      // )
+    })                                                                
 
   module.exports = melodiesRouter

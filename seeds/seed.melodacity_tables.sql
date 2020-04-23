@@ -23,11 +23,11 @@ VALUES
   ('B. Dylan', 'rainy-day41', '$2a$12$hyrlA/w15RYCe95h0Z6gU.wCGdVo5qZfqIenanGNopH8lzOq4QdGC'),
   ('E. James', 'atlastlady', '$2a$12$.yE7nUkx1cUyvxFjCQ1ImO4W9SsQSzpFAgEbmjlon7s7cQbLyOVqm');
 
-  INSERT INTO melodacity_melodies (title, content, user_id)
+  INSERT INTO melodacity_melodies (title, music_key, tonic, progression, melody, user_id)
     VALUES
-      ('Dummy melody', 'do re mi fa so la ti  da', 1),
-      ('Melody Title', 'This is the music!!', 1),
-      ('I make a lot of musis', 'placeholder for my music', 1),
-      ('Baby', 'baby, baby. baby, ooooooh', 3),
-      ('At last', 'this is a melody', 6);
+      ('Dummy melody', 'C','minor','1, 4, 5', 'do re mi fa so la ti  da', 1),
+      ('Melody Title', 'A', 'major','1, 4, 5', 'This is the music!!', 1),
+      ('I make a lot of music', 'B','minor','1, 4, 5',  'placeholder for my music', 1),
+      ('Baby', 'B', 'major','1, 4, 5', 'baby, baby. baby, ooooooh', 3),
+      ('At last', 'A', 'minor','1, 4, 5','this is a melody', 6);
 COMMIT;

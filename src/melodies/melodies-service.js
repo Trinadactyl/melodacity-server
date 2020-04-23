@@ -5,13 +5,23 @@ const MelodiesService = {
       .select(
         'melody.id',
         'melody.title',
-        'melody.content',
+        'melody.music_key',
+        'melody.tonic',
+        'melody.progression',
+        'melody.melody',
         'melody.date_created',
         'melody.user_id'
       )
   },
-
-
+  insertMelody(db, newMelody) {
+    return db
+    .insert(newMelody)
+    .into('melodacity_melodies')
+    .returning('*')
+    .then(rows => {
+      return rows[0]
+    })
+  },
  //end 
 }
 

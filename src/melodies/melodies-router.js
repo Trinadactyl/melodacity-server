@@ -13,6 +13,21 @@ melodiesRouter
       })
       .catch(next)
   })
-  .post('/melodies', jsonBodyParser, (req,res,next                                                                                                                                                                                                                                                                                ))
+  .post(jsonBodyParser, (req,res,next) => {
+    ///const { title, key, progression, melody, user_id } = req.body
+    //const newMelody = { title, content, user_id }
+
+    MelodiesService.insertMelody(
+      req.app.get('db'),
+      req.body
+    )
+    .then(melody => {
+      res
+        .status(201)
+        .location(`/melodies`)
+        .json(melody)
+    })
+    .catch(next)
+  })                                                                
 
   module.exports = melodiesRouter

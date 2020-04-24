@@ -27,14 +27,14 @@ melodiesRouter
     })
     .catch(next)
   })
-  // melodiesRouter
-  //   .route('/:user_id')
-  //   .get((req, res, next) => {
-  //     MelodiesService.getUserMelodies(req.app.get('db'),res.user_id)
-  //       .then(melodies => {
-  //         res.json(melodies)
-  //       })
-  //       .catch(next)
-  //   })                                                                
+  melodiesRouter
+    .route('/:user_id')
+    .get((req, res, next) => {
+      MelodiesService.getUserMelodies(req.app.get('db'),res.user_id)
+        .then(melodies => {
+          res.json(melodies)
+        })
+        .catch(next)
+    })                                                                
 
   module.exports = melodiesRouter

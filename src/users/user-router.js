@@ -16,8 +16,12 @@ usersRouter
 
 usersRouter
   .route('/:id')
-  .get((req, res) => {
-    res.json(UsersService.getUserWithId(res.id))
+  .get((req, res, next) => {
+    UsersService.getUserWithId(req.app.get('db'),res.id)
+     .then(user => {
+     res.json(user)
+     })
+    .catch(next)
   })
 
 

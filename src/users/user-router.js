@@ -14,15 +14,15 @@ usersRouter
       .catch(next)
   })
 
-usersRouter
-  .route('/:id')
-  .get((req, res, next) => {
-    UsersService.getUserWithId(req.app.get('db'),res.id)
-     .then(user => {
-     res.json(user)
-     })
-    .catch(next)
-  })
+// usersRouter
+//   .route('/:id')
+//   .get((req, res, next) => {
+//     UsersService.getUserWithId(req.app.get('db'),res.id)
+//      .then(user => {
+//      res.json(user)
+//      })
+//     .catch(next)
+//   })
 
 
   // .post('/', jsonBodyParser, (req, res) => {

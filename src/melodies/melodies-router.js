@@ -15,26 +15,27 @@ melodiesRouter
   })
   .post(jsonBodyParser, (req,res,next) => {
 
-    MelodiesService.insertMelody(
-      req.app.get('db'),
-      req.body
-    )
-    .then(melody => {
-      res
-        .status(201)
-        .location(`/melodies`)
-        .json(melody)
-    })
-    .catch(next)
+  MelodiesService.insertMelody(
+    req.app.get('db'),
+    req.body
+  )
+  .then(melody => {
+    res
+      .status(201)
+      .location(`/melodies`)
+      .json(melody)
   })
-  melodiesRouter
-    .route('/:user_id')
-    .get((req, res, next) => {
-      MelodiesService.getUserMelodies(req.app.get('db'),res.user_id)
-        .then(melodies => {
-          res.json(melodies)
-        })
-        .catch(next)
-    })                                                                
+  .catch(next)
+})
+melodiesRouter
+  .route('/:user_id')
+  .get((req, res, next) => {
+    console.log(req.params.user_id)
+    MelodiesService.getUserMelodies(req.app.get('db'),req.params.user_id)
+      .then(melodies => {
+        res.json(melodies)
+      })
+      .catch(next)
+  })                                                                
 
-  module.exports = melodiesRouter
+module.exports = melodiesRouter

@@ -30,12 +30,22 @@ melodiesRouter
 melodiesRouter
   .route('/:user_id')
   .get((req, res, next) => {
-    console.log(req.params.user_id)
+    console.log('req.params.user_id:', req.params.user_id)
     MelodiesService.getUserMelodies(req.app.get('db'),req.params.user_id)
       .then(melodies => {
         res.json(melodies)
       })
       .catch(next)
-  })                                                                
+  })
+  .delete((req, res, next) => {
+    MelodiesService.deleteMelody(req.app.get('db'), req.params.user_id)
+    .then(() => {
+      res.status(204).end()
+    })
+    .catch((error) => {
+      console.log('error:', error)
+      next(error)
+    })   
+  })                                                           
 
 module.exports = melodiesRouter

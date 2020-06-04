@@ -26,6 +26,12 @@ const MelodiesService = {
       return rows[0]
     })
   },
+  deleteMelody(db, id) {
+    return db
+      .from('melodacity_melodies')
+      .where({ id })
+      .delete()
+  }
  //end 
 }
 

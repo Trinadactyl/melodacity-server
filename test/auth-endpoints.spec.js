@@ -21,7 +21,7 @@ describe('Auth Endpoints', function() {
 
   before('cleanup', () => db('melodacity_users').truncate())
 
-  afterEach('Clean the table', () => db('melodacity_users').truncate())
+  afterEach('clean the table', () => db('melodacity_users').truncate())
 
   describe(`POST /auth/login`, () => {
     beforeEach('insert users', () => 
@@ -58,7 +58,7 @@ describe('Auth Endpoints', function() {
       .expect(400, { error: `Incorrect user_name or password` })
     })
 
-    it( `responds 4-- 'invalid user_name or password' when bad user_name`, () => {
+    it( `responds 400 'invalid user_name or password' when bad user_name`, () => {
       const userInvalidPass = { user_name: testUser.user_name, password: 'incorrect' }
       return supertest(app)
       .post('/auth/login')
@@ -86,6 +86,6 @@ describe('Auth Endpoints', function() {
         auhtToken: expectedToken
       })
     })
-    
+
   })
 })

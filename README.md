@@ -1,4 +1,8 @@
-# Meloacity Server!
+# Server for Melodacity
+-A fun, interactive app for simple music composition.
+
+Check it out: https://melodacity.now.sh/
+
 
 ## Endpoints:
   
@@ -23,12 +27,11 @@
       Takes in user id, and responds with all the melodies associated with the specified user id.
 
 
-## Scripts
+## Technologies:
+-Node.js
+-Express
+-Mocha
+-Nodemon
 
-Start the application `npm start`
-
-Start nodemon for the application `npm run dev`
-
-Run the tests `npm test`
 
 
